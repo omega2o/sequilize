@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de Produtos</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Produtos</h1>
+  <a href="/produtos/create">Adicionar Produto</a>
+  <ul>
+    <% produtos.forEach(produto => { %>
+      <li>
+        <%= produto.nome %> - R$ <%= produto.preco %> 
+        <a href="/produtos/edit/<%= produto.id %>">Editar</a> 
+        <form action="/produtos/delete/<%= produto.id %>" method="post" style="display:inline;">
+          <button type="submit">Excluir</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
